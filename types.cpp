@@ -1,7 +1,6 @@
 #include "types.h"
 #include "general.h"
 
-#include <math.h>
 #include <malloc.h>
 #include <initializer_list>
 
@@ -23,6 +22,11 @@ char* clean::character::tostring(char chr)
 	return result;
 }
 
+int clean::integer::absolute(int number)
+{
+	return number < 0 ? -number : number;
+}
+
 char* clean::integer::tostring(int digit)
 {
 	if (digit == 0)
@@ -31,7 +35,7 @@ char* clean::integer::tostring(int digit)
 	var isnegative = digit < 0;
 	var result = new char[100];
 	var i = 0;
-	digit = abs(digit);
+	digit = clean::integer::absolute(digit);
 
 	while (digit != 0)
 	{

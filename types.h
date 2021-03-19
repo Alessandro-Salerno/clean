@@ -66,5 +66,8 @@ namespace clean
 		/// <param name="digit">10 based integer</param>
 		/// <returns></returns>
 		char* tostring(int digit);
+
+		/// returns the absolute number of a number
+		int absolute(int number);
 	}
 }
