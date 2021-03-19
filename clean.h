@@ -25,6 +25,13 @@ namespace clean
 		/// <param name="chr"></param>
 		/// <returns></returns>
 		bool isdigit(char chr);
+
+		/// <summary>
+		/// converts a char to a string
+		/// </summary>
+		/// <param name="chr"></param>
+		/// <returns></returns>
+		char* tostring(char chr);
 	}
 
 	namespace string
@@ -327,8 +334,9 @@ namespace clean
 
 			if (this->m_length > 2) size += this->m_length * 2;
 			else if (this->m_length > 1) size += 2;
+			else size++;
 
-			char* result = static_cast<char*>(std::malloc(size));
+			char* result = new char[size];
 			uint result_i = 0;
 
 			result[result_i++] = '[';
@@ -344,6 +352,8 @@ namespace clean
 
 				for (uint j = 0; j < strlen(string); j++)
 					result[result_i++] = string[j];
+
+				delete[] string;
 			}
 
 			result[result_i++] = ']';

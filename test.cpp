@@ -3,9 +3,9 @@
 #include <vector>
 int main()
 {
-	std::vector<int> x;
 	{
 		using namespace clean;
+		var x = Vector<int>();
 	}
 
 	return 0;

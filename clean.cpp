@@ -42,6 +42,14 @@ bool clean::character::isdigit(char chr)
 	return chr >= '0' && chr <= '9';
 }
 
+char* clean::character::tostring(char chr)
+{
+	var result = new char[2];
+	result[0] = chr;
+	result[1] = '\0';
+	return result;
+}
+
 char* clean::integer::tostring(int digit)
 {
 	if (digit == 0)
