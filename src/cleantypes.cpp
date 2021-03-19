@@ -1,48 +1,19 @@
-#include "clean.h"
+#include "../headers/cleantypes.h"
+#include "../headers/cleanobject.h"
+#include <memory>
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 
-[[noreturn]] void clean::trap(const char* function, const char* error)
-{
-	clean::io::print("Called trap on `{0}`: {1}\n", { function, error });
-	throw "trap";
-}
-
-void clean::io::println(const char* text)
-{
-	printf("%s\n", text);
-}
-
-void clean::io::print(std::initializer_list<const char*> args, const char* sep, const char* end)
-{
-	uint i = 0;
-	for (var arg : args)
-		printf("%s%s", arg, i++ < args.size()-1 ? sep : end);
-}
-
-void clean::io::print(const char* fmt, std::initializer_list<const char*> args)
-{
-	printf("%s", clean::string::format(fmt, args));
-}
-
-void clean::io::print(const char* text)
-{
-	printf("%s", text);
-}
-
-const char* clean::boolean::tostring(bool value)
+const char* clean::types::boolean::tostring(bool value)
 {
 	return value ? "true" : "false";
 }
 
-bool clean::character::isdigit(char chr)
+bool clean::types::character::isdigit(char chr)
 {
 	return chr >= '0' && chr <= '9';
 }
 
-char* clean::integer::tostring(int digit)
+char* clean::types::integer::tostring(int digit)
 {
 	if (digit == 0)
 		return (char*)"0";
@@ -72,7 +43,7 @@ char* clean::integer::tostring(int digit)
 	return r;
 }
 
-int clean::string::toint(const char* text)
+int clean::types::string::toint(const char* text)
 {
 	var res = 0;
 	char prefixop = '\0';
@@ -99,7 +70,7 @@ int clean::string::toint(const char* text)
 	return prefixop == '-' ? -res : res;
 }
 
-char* clean::string::format(const char* fmt, std::initializer_list<const char*> args)
+char* clean::types::string::format(const char* fmt, std::initializer_list<const char*> args)
 {
 	char* result = new char[1000];
 	uint i = 0;
@@ -169,7 +140,7 @@ char* clean::string::format(const char* fmt, std::initializer_list<const char*> 
 	return static_cast<char*>(realloc(result, i));
 }
 
-char* clean::string::reverse(const char* text, uint len)
+char* clean::types::string::reverse(const char* text, uint len)
 {
 	var result = new char[len + 1];
 	uint i = 0;
