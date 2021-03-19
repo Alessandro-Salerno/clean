@@ -3,6 +3,8 @@
 
 #include <math.h>
 #include <malloc.h>
+#include <initializer_list>
+#include <string.h>
 
 const char* clean::boolean::tostring(bool value)
 {
