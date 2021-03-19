@@ -1,6 +1,7 @@
 #pragma once
 
 #include "general.h"
+#include <initializer_list>
 
 namespace clean
 {
@@ -52,6 +53,9 @@ namespace clean
 		/// reverses the passed string
 		/// </summary>
 		char* reverse(const char* text, uint len);
+
+		/// returns a null terminated string length
+		uint lengthof(const char* text);
 	}
 
 	namespace integer

@@ -1,9 +1,8 @@
 #include "io.h"
-#include "string.h"
+#include "types.h"
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 
 void clean::io::println(const char* text)
 {

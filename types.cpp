@@ -4,7 +4,6 @@
 #include <math.h>
 #include <malloc.h>
 #include <initializer_list>
-#include <string.h>
 
 const char* clean::boolean::tostring(bool value)
 {
@@ -52,6 +51,13 @@ char* clean::integer::tostring(int digit)
 	delete[] result;
 
 	return r;
+}
+
+uint clean::string::lengthof(const char* text)
+{
+	uint i = 0; while (text[i++] != '\0');
+	
+	return i;
 }
 
 int clean::string::toint(const char* text)
@@ -124,7 +130,7 @@ char* clean::string::format(const char* fmt, std::initializer_list<const char*> 
 				if (index_int == k)
 				{
 					k = 0;
-					var len = strlen(arg);
+					var len = lengthof(arg);
 
 					while (k < len)
 					{
@@ -162,4 +168,4 @@ char* clean::string::reverse(const char* text, uint len)
 	result[i] = '\0';
 
 	return result;
-}\
+}
