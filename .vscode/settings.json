@@ -1,0 +1,7 @@
+{
+   "files.associations": {
+      "*.mug": "mug",
+      "xmemory": "cpp",
+      "vector": "cpp"
+   }
+}

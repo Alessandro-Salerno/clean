@@ -165,7 +165,7 @@ namespace clean
 
 		~Vector()
 		{
-			free(this->m_raw);
+			delete[] this->m_raw;
 		}
 
 		/// <summary>
@@ -323,7 +323,7 @@ namespace clean
 		/// <returns></returns>
 		char* tostring(char* (*stringize)(T)) const
 		{
-			register uint size = 2 + this->m_length;
+			uint size = 2 + this->m_length;
 
 			if (this->m_length > 2) size += this->m_length * 2;
 			else if (this->m_length > 1) size += 2;
@@ -386,32 +386,42 @@ namespace clean
 			this->m_capacity = newcapacity;
 		}
 
-		/// <summary>
 		/// clears the sequence, the capacity will be the same, the length resetted
-		/// </summary>
 		inline void clear()
 		{
 			this->m_length = 0;
 		}
 
+		// inserts an element into a specific index and moves the next data
 		void insert(uint index, T element)
 		{
-			/*if (this->m_length <= index)
+			if (this->m_length <= index)
 				trap("Vector.insert(uint)", "`index` is greater than the dynamic array's length");
 
-			const uint size = this->m_length - index;
+			T* result;
+			uint i = 0;
 
-			var tmp = new T[size];
+			if (this->m_length++ > this->m_capacity)
+				result = new T[this->getNewCapacity()];
+			else
+				result = new T[this->m_capacity];
 
-			for (uint i = 0; i < size; i++)
-				tmp[i] = this->m_raw[index+i];
+			for (; i < index; i++)
+				result[i] = this->m_raw[i];
 
-			this->m_raw[index++] = element;
+			result[i++] = element;
 
-			for (uint i = 0; i < size; i++)
-			{
-				this->
-			}*/
+			for (; i < this->m_length+1-index; i++)
+				result[i] = this->m_raw[i-1];
+			
+			delete[] this->m_raw;
+			this->m_raw = result;
+		}
+
+		/// returns true whether the sequence contains no elements
+		inline bool isempty() const
+		{
+			return this->m_length == 0;
 		}
 
 		T& operator [](uint index)
