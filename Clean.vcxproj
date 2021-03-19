@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{b1cb81e3-ebf9-44bf-912f-fda8e217aa3f}</ProjectGuid>
-    <RootNamespace>Flower</RootNamespace>
+    <RootNamespace>Clean</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
