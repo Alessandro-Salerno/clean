@@ -5,10 +5,9 @@
 #define uint unsigned int
 #define var auto
 
-
 namespace clean
 {
-    namespace io
+	namespace io
 	{
 		/// <summary>
 		/// writes a single text on the console and writes a new line

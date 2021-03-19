@@ -1,36 +1,8 @@
-#include "clean.h"
+#include "types.h"
+#include "general.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-
-[[noreturn]] void clean::trap(const char* function, const char* error)
-{
-	clean::io::print("Called trap on `{0}`: {1}\n", { function, error });
-	throw "trap";
-}
-
-void clean::io::println(const char* text)
-{
-	printf("%s\n", text);
-}
-
-void clean::io::print(std::initializer_list<const char*> args, const char* sep, const char* end)
-{
-	uint i = 0;
-	for (var arg : args)
-		printf("%s%s", arg, i++ < args.size()-1 ? sep : end);
-}
-
-void clean::io::print(const char* fmt, std::initializer_list<const char*> args)
-{
-	printf("%s", clean::string::format(fmt, args));
-}
-
-void clean::io::print(const char* text)
-{
-	printf("%s", text);
-}
+#include <math.h>
+#include <malloc.h>
 
 const char* clean::boolean::tostring(bool value)
 {
@@ -188,4 +160,4 @@ char* clean::string::reverse(const char* text, uint len)
 	result[i] = '\0';
 
 	return result;
-}
+}\
