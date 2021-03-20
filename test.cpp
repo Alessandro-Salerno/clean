@@ -1,12 +1,14 @@
-#include "vector.h"
+#include "object.h"
+#include "io.h"
+#include "types.h"
 
-#include <vector>
 int main()
 {
 	{
 		using namespace clean;
-		var x = Vector<int>();
-		
+		var x = Object(1);
+		x.add(Object(10));
+		io::println(integer::tostring(x.cast<int>()));
 	}
 
 	return 0;

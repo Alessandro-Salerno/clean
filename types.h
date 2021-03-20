@@ -54,8 +54,14 @@ namespace clean
 		/// </summary>
 		char* reverse(const char* text, uint len);
 
-		/// returns a null terminated string length
+		/// returns a null terminated string's length
 		uint lengthof(const char* text);
+
+		/// returns a null terminated string's length taking count also of the null character
+		uint realsizeof(const char* text);
+
+		/// returns a string reppresenting `right` concatenated to `left`
+		const char* concat(const char* left, const char* right);
 	}
 
 	namespace integer

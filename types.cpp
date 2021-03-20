@@ -57,9 +57,32 @@ char* clean::integer::tostring(int digit)
 	return r;
 }
 
+const char* clean::string::concat(const char* left, const char* right)
+{
+	const uint size = clean::string::lengthof(left)+clean::string::lengthof(right)+1;
+	var result = new char[size];
+	uint i = 0;
+	
+	for (; left[i] != '\0'; i++)
+		result[i] = left[i];
+	
+	var left_length = i;
+
+	for (i = 0; right[i] != '\0'; i++)
+		result[left_length+i] = right[i];
+
+	result[size-1] = '\0';
+	return result;
+}
+
+uint clean::string::realsizeof(const char* text)
+{
+	return clean::string::lengthof(text)+1;
+}
+
 uint clean::string::lengthof(const char* text)
 {
-	uint i = 0; while (text[i++] != '\0');
+	uint i = 0; while (text[i] != '\0') i++;
 	
 	return i;
 }
