@@ -35,5 +35,21 @@ namespace clean
 		/// </summary>
 		/// <param name="text"></param>
 		void print(const char* text);
+
+		/// <summary>
+		/// prints a blank line
+		/// </summary>
+		void blank();
+
+		/// <summary>
+		/// prints a question and returns the answer as char*
+		/// </summary>
+		/// <param name="text"></param>
+		char* input(const char* text);
+
+		/// <summary>
+		/// freezes the program untill the enter key is pressed
+		/// </summary>
+		void wait();
 	}
 }

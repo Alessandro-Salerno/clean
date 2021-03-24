@@ -1,15 +1,18 @@
-#include "object.h"
-#include "io.h"
-#include "types.h"
+#include "clean.h"
+
 
 int main()
 {
-	{
-		using namespace clean;
-		var x = Object(1);
-		x.add(Object(10));
-		io::println(integer::tostring(x.cast<int>()));
-	}
+	clean::io::println("Clean adventures!");
+	clean::io::print("Press enter to continue ");
+	clean::io::wait();
+	clean::io::blank();
 
-	return 0;
+	clean::io::println("This text adventure has been created fully with the features provided by the clean library!");
+	clean::io::println("https://github.com/Carpall/clean");
+	clean::io::wait();
+	clean::io::blank();
+
+	clean::io::println("Emmm.... Can't be bothered to actually make a game :)");
+	clean::io::wait();
 }

@@ -6,9 +6,8 @@
 
 namespace clean
 {
-   enum class TypeCode
+	enum class TypeCode
 	{
-		String,
 		Char,
 		Int,
 		Long,
@@ -52,20 +51,6 @@ namespace clean
 		inline uint size() const
 		{
 			return this->m_size;
-		}
-
-		void add(Object right) const
-		{
-			if (this->m_type != right.m_type)
-				trap("Object.add()", "unable to add different types");
-
-			switch (this->m_type)
-			{
-			case TypeCode::Char: *((char*)this->m_raw) = *((char*)this->m_raw)+*((char*)right.m_raw); break;
-			case TypeCode::Int: *((int*)this->m_raw) = *((int*)this->m_raw)+*((int*)right.m_raw); break;
-			case TypeCode::Long: *((long*)this->m_raw) = *((long*)this->m_raw)+*((long*)right.m_raw); break;
-			default: trap("Object.add()", "unable to add non-int types"); break;
-			}
 		}
 
 		template<typename T>

@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 
 void clean::io::println(const char* text)
 {
@@ -24,4 +25,23 @@ void clean::io::print(const char* fmt, std::initializer_list<const char*> args)
 void clean::io::print(const char* text)
 {
 	printf("%s", text);
+}
+
+void clean::io::blank()
+{
+	std::cout << std::endl;
+}
+
+char* clean::io::input(const char* text)
+{
+	char* input = new char[512]; 
+	std::cout << text;
+	std::cin.getline(input, 512);
+
+	return input;
+}
+
+void clean::io::wait()
+{
+	std::cin.get();
 }

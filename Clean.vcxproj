@@ -141,11 +141,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="clean.cpp" />
+    <ClCompile Include="general.cpp" />
+    <ClCompile Include="io.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="types.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="arco.h" />
+    <ClInclude Include="general.h" />
+    <ClInclude Include="io.h" />
+    <ClInclude Include="object.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
